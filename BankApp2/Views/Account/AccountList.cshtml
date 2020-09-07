@@ -1,0 +1,28 @@
+﻿@model List<BankApp2.Context.Account>
+@{
+    ViewBag.Title = "AccountList";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>Accname</th>
+        <th>Email</th>
+        <th>phone</th>
+        <th>balance</th>
+        <th>Action</th>
+ </tr>
+  @foreach (var item in Model)
+  {
+<tr>
+    <td>@item.Accname</td>
+    <td>@item.Email</td>
+    <td>@item.phone</td>
+    <td>@item.balance</td>
+    <td>
+        <a href="@Url.Action("Account",new {item.Accid,item.Accname,item.Email,item.phone,item.balance})" class="btn btn-success">EDIT ACCOUNT DETAILS</a>
+        <a href="@Url.Action("Delete",new {item.Accid})" class="btn btn-danger">DELETE ACCOUNT</a>
+    </td>
+</tr>
+  }
+</table>
+
